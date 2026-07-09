@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.OpenApi;
+using SampleApp.BackEnd.Dtos;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -45,6 +46,31 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+
+List<GameDto> games = [
+    new (
+        1, 
+        "The Legend of Zelda: Breath of the Wild", 
+        "Action-adventure", 
+        59.99m, 
+        new DateOnly(2017, 3, 3)),
+    new (
+        2, 
+        "Super Mario Odyssey", 
+        "Platform", 
+        55.99m, 
+        new DateOnly(2017, 10, 27)),
+    new (
+        3, 
+        "Red Dead Redemption 2", 
+        "Action-adventure", 
+        57.99m, 
+        new DateOnly(2017, 10, 27)),
+];
+
+app.MapGet("/games", () => games);   
+
+app.MapGet("/teste", () => "OK");
 
 app.Run();
 
