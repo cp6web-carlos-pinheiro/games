@@ -5,6 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApiConfiguration();
 
+builder.Services.AddValidation();
+
 var app = builder.Build();
 
 app.ConfigureOpenApi();
