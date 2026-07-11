@@ -13,3 +13,17 @@ Content-Type: application/json
     "price": 59.12,
     "releaseDate": "2026-10-20"
 }
+
+###
+PUT http://localhost:8080/games/1
+Content-Type: application/json
+
+{    
+    "name": "The Legend of Zelda: Zero Alpha",
+    "genre": "Action-adventure",
+    "price": 9.99,
+    "releaseDate": "2026-03-03"
+}
+
+###
+DELETE  http://localhost:8080/games/1

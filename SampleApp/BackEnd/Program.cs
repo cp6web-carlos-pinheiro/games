@@ -91,6 +91,29 @@ app.MapPost("/games", (CreateGameDto newGame) =>
     
 });
 
+app.MapPut("/games/{id}", (int id, UpdateGameDto updateGame) =>
+{
+   var index = games.FindIndex(game => game.Id == id);
+
+   games[index] = new GameDto(
+        id,
+        updateGame.Name,
+        updateGame.Genre,
+        updateGame.Price,
+        updateGame.ReleaseDate
+   );
+
+   return Results.NoContent();
+
+});
+
+app.MapDelete("/games/{id}", (int id) =>
+{
+    games.RemoveAll(game => game.Id == id);
+
+    return Results.NoContent();
+});
+
 app.Run();
 
 internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
