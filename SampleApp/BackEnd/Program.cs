@@ -21,4 +21,6 @@ app.MapWeatherForecastEndpoints();
 
 app.MapGamesEndpoints();
 
+app.MigrateDb();
+
 app.Run();
